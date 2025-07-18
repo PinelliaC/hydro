@@ -4,12 +4,7 @@ members = ["bin/*", "crates/*"]
 
 
 [workspace.dependencies]
-# # Workspace
-# hana-client = { path = "bin/client", version = "0.1.0", default-features = false }
-# hana-celestia = { path = "crates/celestia", version = "0.1.0", default-features = false }
-# hana-proofs = { path = "crates/proofs", version = "0.1.0", default-features = false }
-# hana-blobstream = { path = "crates/blobstream", version = "0.1.0", default-features = false }
-# hana-oracle = { path = "crates/oracle", version = "0.1.0", default-features = false }
+# Hydro
 hydro-client = { path = "bin/client", version = "0.1.0", default-features = false }
 hydro-eigenda = { path = "crates/eigenda", version = "0.1.0", default-features = false }
 hydro-oracle = { path = "crates/oracle", version = "0.1.0", default-features = false }
@@ -102,12 +97,6 @@ revm = { git = "https://github.com/mantle-xyz/revm", branch = "skadi_new", defau
 op-revm = { git = "https://github.com/mantle-xyz/revm", branch = "skadi_new", default-features = false }
 alloy-evm = { git = "https://github.com/mantle-xyz/evm", branch = "dev", default-features = false }
 alloy-op-evm = { git = "https://github.com/mantle-xyz/evm", branch = "dev", default-features = false }
-
-
-# Celestia
-celestia-types = { git = "https://github.com/eigerco/lumina", rev = "4751731" }
-celestia-rpc = { git = "https://github.com/eigerco/lumina", rev = "4751731" }
-jsonrpsee = "0.24.9"
 
 # proto
 prost = { version = "0.13.3", default-features = false, features = ["derive"] }
