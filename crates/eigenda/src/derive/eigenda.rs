@@ -109,10 +109,12 @@ where
                 _ => continue,
             };
             let Some(to) = tx_kind else { continue };
+
             if to != self.batcher_address {
                 index += blob_hashes.map_or(0, |h| h.len() as u64);
                 continue;
             }
+
             if tx.recover_signer().unwrap_or_default() != batcher_address {
                 index += blob_hashes.map_or(0, |h| h.len() as u64);
                 continue;
@@ -126,10 +128,7 @@ where
                         continue;
                     };
                     for blob in blob_hashes {
-                        let indexed = IndexedBlobHash {
-                            hash: blob,
-                            index: index,
-                        };
+                        let indexed = IndexedBlobHash { hash: blob, index };
                         hashes.push(indexed);
                         index += 1;
                     }

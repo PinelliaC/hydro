@@ -33,7 +33,7 @@ impl HintHandler for EigenDAChainHintHandler {
             HintWrapper::Standard(standard_hint) => {
                 let inner_hint = Hint {
                     ty: standard_hint,
-                    data: hint.data,
+                    data: hint.data.clone(),
                 };
 
                 match SingleChainHintHandler::fetch_hint(
@@ -45,7 +45,7 @@ impl HintHandler for EigenDAChainHintHandler {
                 .await
                 {
                     Ok(_) => (),
-                    Err(err) => anyhow::bail!("Standard Hint processing error {err}"),
+                    Err(err) => anyhow::bail!("Standard Hint processing error {err} on hint type {standard_hint} and data {:x}", hint.data),
                 }
             }
             HintWrapper::EigenDABlob => {
